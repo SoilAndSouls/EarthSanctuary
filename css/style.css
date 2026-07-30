@@ -519,6 +519,66 @@ footer {
   opacity: 0.7;
 }
 
+/* Partner logos */
+.footer-partners {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-partners-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 1.25rem;
+}
+
+.footer-partners-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem 2.5rem;
+}
+
+.footer-partners-logos img {
+  height: 72px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.4rem;
+}
+
+.footer-partners-logos img[alt="Order of San Sau"] {
+  background: #000;
+  padding: 0.25rem;
+}
+
+/* Keep faces visible in cropped people photos */
+.photo-faces {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.leader-portrait {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.leader-portrait--rev {
+  object-position: 78% 22%;
+}
+
+.leader-portrait--nyame {
+  object-position: center 12%;
+}
+
 /* Section images - prevent overflow and center */
 .glass-card img {
   max-width: 100%;

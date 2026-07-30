@@ -50,7 +50,7 @@
             <div class="container">
                 <h2 class="section-title">About Our Community</h2>
                 <div class="glass-card" style="text-align: center;">
-                    <img src="images/community-group.jpeg" alt="Community on the land" style="width: 100%; max-width: 600px; border-radius: 16px; margin-bottom: 2rem;">
+                    <img src="images/community-group.jpeg" alt="Community on the land" class="photo-faces" style="width: 100%; max-width: 600px; border-radius: 16px; margin-bottom: 2rem; object-position: center 70%;">
                     <p style="font-size: 1.3rem; line-height: 1.8;">
                         We are an interfaith spiritual community committed to personal spiritual growth and care for Earth. We live on Delley ancestral land.
                     </p>
@@ -93,7 +93,7 @@
             <div class="container">
                 <h2 class="section-title">Team Leaders</h2>
                 <div class="glass-card" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    <img src="images/team-leaders.jpg" alt="Team Leaders" style="width: 100%; border-radius: 16px; margin-bottom: 2rem;">
+                    <img src="images/team-leaders.jpg" alt="Team Leaders" class="photo-faces" style="width: 100%; border-radius: 16px; margin-bottom: 2rem; object-position: center 75%;">
                     <p style="font-size: 1.2rem; line-height: 1.8;">
                         Led by <strong>Rev Dele</strong>, our community welcomes all who seek spiritual growth and connection with the Earth. We honor the sacred ancestral land we gather on and commit to being good stewards for future generations.
                     </p>
@@ -123,7 +123,14 @@
                 <p style="max-width: 700px; margin: 0 auto 2rem;">
                     Your generous donations help us maintain the sacred land and support our interfaith spiritual community programs.
                 </p>
-                <a href="https://buy.stripe.com/bJebJ0fzU9CE6ibf920x20a" class="donation-button"><img src="images/badge-seedling.svg" alt="" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 0.5rem;">Make a Sacred Offering</a>
+                <script async
+                  src="https://js.stripe.com/v3/buy-button.js">
+                </script>
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1TjW9bIriuy4MnBQKhPGA4pL"
+                  publishable-key="pk_live_51Tj18wIriuy4MnBQqUa2sUh0p0VzTY0R0nFxyjLhO3pjEZetukrYTz7aQtDnSWpnkhDhlzznCCsx314JWd9EwyqT00fS5PAFvS"
+                >
+                </stripe-buy-button>
                 <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">Secure payment processed by Stripe</p>
             </div>
         </section>
@@ -144,6 +151,15 @@
             <p style="margin-top: 1rem;">
                 <strong>Contact:</strong> Rev Dele | 804-389-5150 | <a href="https://youtube.com/@revdele" style="color: var(--sacred-gold);">@revdele</a>
             </p>
+            <div class="footer-partners">
+                <p class="footer-partners-label">Our Partners</p>
+                <div class="footer-partners-logos">
+                    <img src="images/partner-order-of-san-sau.png" alt="Order of San Sau">
+                    <img src="images/partner-detroit-cob.png" alt="Detroit Cob Builders">
+                    <img src="images/partner-honey-jar.png" alt="Becoming EarthWise">
+                </div>
+            </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Earth Sanctuary Order of San Sau. All rights reserved.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.9rem;">"Every breath, every thought and every action can and must be performed in a sacred manner."</p>
