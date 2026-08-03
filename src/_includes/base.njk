@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if description %}<meta name="description" content="{{ description }}">
+    {% endif %}<title>{{ title }}</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo_enhanced.png">
+{% if extraStyles == "support" %}{% include "support-styles.njk" %}{% endif %}</head>
+<body>
+{% include "header.njk" %}
+{{ content | safe }}
+{% if footerVariant == "invest" %}{% include "footer-invest.njk" %}{% else %}{% include "footer.njk" %}{% endif %}
+    <script src="js/main.js"></script>
+</body>
+</html>

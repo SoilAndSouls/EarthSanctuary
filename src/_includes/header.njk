@@ -1,0 +1,14 @@
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="images/logo_enhanced.png" alt="Earth Sanctuary Logo" class="logo-image">
+                {{ site.brandName }}
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">&#9776;</button>
+            <nav>
+                <ul>
+{% for item in site.nav %}                    <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+{% endfor %}                </ul>
+            </nav>
+        </div>
+    </header>

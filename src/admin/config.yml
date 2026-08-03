@@ -1,0 +1,167 @@
+# Sveltia CMS configuration for the Earth Sanctuary website.
+# Editors sign in with their own GitHub account; every change they make
+# is saved as a normal commit to the repository.
+
+backend:
+  name: github
+  repo: SoilAndSouls/EarthSanctuary   # <-- update if the org/repo name changes
+  branch: main
+  # The OAuth broker that lets GitHub log people in. These endpoints are
+  # served by the Cloudflare Pages Functions in the /functions folder,
+  # so they live on this same site.
+  base_url: https://earthsanctuary.net
+  auth_endpoint: auth
+
+# Where uploaded images are stored in the repo, and how they are referenced
+# from the built site.
+media_folder: "src/images"
+public_folder: "/images"
+
+# Keep the editing experience friendly for non-technical stewards.
+editor:
+  preview: false
+
+collections:
+  # ─────────────────────────────────────────────────────────────
+  # 1. SITE SETTINGS — the safest, most-edited content. These values
+  #    appear on every page (menu, footer, contact info, partners).
+  # ─────────────────────────────────────────────────────────────
+  - name: settings
+    label: "Site Settings"
+    description: "Site-wide content shown on every page."
+    files:
+      - name: general
+        label: "Global Settings (menu, footer, contact)"
+        file: "src/_data/site.json"
+        fields:
+          - { name: brandName, label: "Header Brand Name", widget: string }
+          - { name: brandFull, label: "Full Brand Name (footer)", widget: string }
+          - { name: copyrightYear, label: "Copyright Year", widget: string }
+          - { name: footerQuote, label: "Footer Quote", widget: text, required: false }
+          - name: contact
+            label: "Contact Information"
+            widget: object
+            fields:
+              - { name: name, label: "Contact Name", widget: string }
+              - { name: phone, label: "Phone", widget: string }
+              - { name: email, label: "Email", widget: string }
+              - { name: youtubeUrl, label: "YouTube URL", widget: string }
+              - { name: youtubeHandle, label: "YouTube Handle", widget: string }
+          - name: nav
+            label: "Navigation Menu"
+            widget: list
+            label_singular: "Menu Item"
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: "Menu Label", widget: string }
+              - { name: url, label: "Link (e.g. about.html)", widget: string }
+          - name: footerLinks
+            label: "Footer Links"
+            widget: list
+            label_singular: "Footer Link"
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: "Label", widget: string }
+              - { name: url, label: "Link", widget: string }
+          - name: partners
+            label: "Partners"
+            widget: list
+            label_singular: "Partner"
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Partner Name", widget: string }
+              - { name: alt, label: "Logo Alt Text", widget: string }
+              - { name: image, label: "Logo Image", widget: image }
+
+  # ─────────────────────────────────────────────────────────────
+  # 2. PAGES — edit the text/content of each page. The hidden fields
+  #    below preserve the page's structure and must not be removed.
+  #    (Big layout changes are best done in code via GitHub.)
+  # ─────────────────────────────────────────────────────────────
+  - name: pages
+    label: "Pages"
+    label_singular: "Page"
+    format: frontmatter
+    editor:
+      preview: false
+    files:
+      - name: home
+        label: "Home Page"
+        file: "src/index.njk"
+        fields:
+          - { name: layout, label: Layout, widget: hidden, default: "base.njk" }
+          - { name: title, label: "Browser Title", widget: string }
+          - { name: description, label: "Meta Description (SEO)", widget: text }
+          - { name: body, label: "Page Content", widget: markdown }
+
+      - name: about
+        label: "About Page"
+        file: "src/about.njk"
+        fields:
+          - { name: layout, label: Layout, widget: hidden, default: "base.njk" }
+          - { name: permalink, label: Permalink, widget: hidden, default: "about.html" }
+          - { name: title, label: "Browser Title", widget: string }
+          - { name: description, label: "Meta Description (SEO)", widget: text }
+          - { name: body, label: "Page Content", widget: markdown }
+
+      - name: practices
+        label: "Practices & Programs Page"
+        file: "src/practices.njk"
+        fields:
+          - { name: layout, label: Layout, widget: hidden, default: "base.njk" }
+          - { name: permalink, label: Permalink, widget: hidden, default: "practices.html" }
+          - { name: title, label: "Browser Title", widget: string }
+          - { name: description, label: "Meta Description (SEO)", widget: text }
+          - { name: body, label: "Page Content", widget: markdown }
+
+      - name: sacred-land
+        label: "Sacred Land Page"
+        file: "src/sacred-land.njk"
+        fields:
+          - { name: layout, label: Layout, widget: hidden, default: "base.njk" }
+          - { name: permalink, label: Permalink, widget: hidden, default: "sacred-land.html" }
+          - { name: footerQuote, label: "Show Footer Quote", widget: hidden, default: false }
+          - { name: title, label: "Browser Title", widget: string }
+          - { name: body, label: "Page Content", widget: markdown }
+
+      - name: events
+        label: "Events Page"
+        file: "src/events.njk"
+        fields:
+          - { name: layout, label: Layout, widget: hidden, default: "base.njk" }
+          - { name: permalink, label: Permalink, widget: hidden, default: "events.html" }
+          - { name: footerQuote, label: "Show Footer Quote", widget: hidden, default: false }
+          - { name: title, label: "Browser Title", widget: string }
+          - { name: body, label: "Page Content", widget: markdown }
+
+      - name: resources
+        label: "Resources Page"
+        file: "src/resources.njk"
+        fields:
+          - { name: layout, label: Layout, widget: hidden, default: "base.njk" }
+          - { name: permalink, label: Permalink, widget: hidden, default: "resources.html" }
+          - { name: footerQuote, label: "Show Footer Quote", widget: hidden, default: false }
+          - { name: title, label: "Browser Title", widget: string }
+          - { name: body, label: "Page Content", widget: markdown }
+
+      - name: support
+        label: "Support & Invest Page"
+        file: "src/support.njk"
+        fields:
+          - { name: layout, label: Layout, widget: hidden, default: "base.njk" }
+          - { name: permalink, label: Permalink, widget: hidden, default: "support.html" }
+          - { name: extraStyles, label: Extra Styles, widget: hidden, default: "support" }
+          - { name: footerVariant, label: Footer Variant, widget: hidden, default: "invest" }
+          - { name: title, label: "Browser Title", widget: string }
+          - { name: description, label: "Meta Description (SEO)", widget: text }
+          - { name: body, label: "Page Content", widget: markdown }
+
+      - name: contact
+        label: "Contact Page"
+        file: "src/contact.njk"
+        fields:
+          - { name: layout, label: Layout, widget: hidden, default: "base.njk" }
+          - { name: permalink, label: Permalink, widget: hidden, default: "contact.html" }
+          - { name: title, label: "Browser Title", widget: string }
+          - { name: description, label: "Meta Description (SEO)", widget: text }
+          - { name: body, label: "Page Content", widget: markdown }

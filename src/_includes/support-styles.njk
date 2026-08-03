@@ -1,0 +1,579 @@
+    <style>
+        /* ── Support & Invest Page Styles ── */
+
+        /* Hero */
+        .invest-hero {
+            background-image: url('images/land1-enhanced.png');
+            background-size: cover;
+            background-position: center 40%;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .invest-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(13,34,4,0.82) 0%, rgba(45,80,22,0.65) 50%, rgba(61,40,23,0.80) 100%);
+        }
+        .invest-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 860px;
+            padding: 2rem;
+        }
+        .invest-hero-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--sacred-gold);
+            margin-bottom: 1.2rem;
+            opacity: 0.9;
+        }
+        .invest-hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 700;
+            color: #FAF8F3;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+        }
+        .invest-hero h1 em {
+            color: var(--sacred-gold);
+            font-style: italic;
+        }
+        .invest-hero-sub {
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(250,248,243,0.88);
+            line-height: 1.7;
+            max-width: 640px;
+            margin: 0 auto 2.2rem;
+        }
+        .invest-hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Gold divider */
+        .gold-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--sacred-gold), transparent);
+            margin: 0 auto 2rem;
+        }
+
+        /* Quick Offering Banner */
+        .offering-banner {
+            background: var(--forest-green);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+        .offering-banner p {
+            color: rgba(250,248,243,0.85);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.7;
+        }
+        .offering-banner .donation-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--sacred-gold);
+            color: #0d2204;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .offering-banner .donation-button:hover {
+            background: #EED060;
+            transform: translateY(-2px);
+        }
+        .offering-banner .secure-note {
+            margin-top: 0.8rem;
+            font-size: 0.82rem;
+            color: rgba(250,248,243,0.55);
+            font-style: italic;
+        }
+
+        /* Vision Statement */
+        .vision-section {
+            background: var(--cream);
+            padding: var(--section-padding);
+        }
+        .vision-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .vision-inner blockquote {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-style: italic;
+            color: var(--forest-green);
+            line-height: 1.5;
+            margin: 0 0 1.5rem;
+            position: relative;
+            padding: 0 1rem;
+        }
+        .vision-inner blockquote::before {
+            content: '\201C';
+            font-size: 5rem;
+            color: var(--sacred-gold);
+            opacity: 0.3;
+            position: absolute;
+            top: -1.5rem;
+            left: -0.5rem;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .vision-body {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: var(--soil-brown);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* How Your Support Helps */
+        .support-helps-section {
+            background: #FAF8F3;
+            padding: var(--section-padding);
+        }
+
+        /* What We Are Building */
+        .building-section {
+            background: linear-gradient(160deg, var(--forest-green) 0%, #1a3a08 100%);
+            padding: var(--section-padding);
+            color: #FAF8F3;
+        }
+        .building-section .section-title {
+            color: var(--sacred-gold);
+        }
+        .building-section .section-subtitle {
+            color: rgba(250,248,243,0.8);
+            max-width: 640px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        .pillar-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212,175,55,0.6);
+        }
+        .pillar-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--sacred-gold);
+            margin-bottom: 0.6rem;
+        }
+        .pillar-card p {
+            font-size: 0.95rem;
+            color: rgba(250,248,243,0.78);
+            line-height: 1.65;
+        }
+
+        /* Photo + Mission Split */
+        .mission-split {
+            background: #FAF8F3;
+            padding: var(--section-padding);
+        }
+        .mission-split-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        .mission-photo {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+            position: relative;
+        }
+        .mission-photo img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            object-position: center 70%;
+            display: block;
+        }
+        .mission-photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(13,34,4,0.85));
+            padding: 1.5rem 1.2rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: rgba(250,248,243,0.9);
+            font-style: italic;
+        }
+        .mission-text h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            color: var(--forest-green);
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+        .mission-text h2 em {
+            color: var(--sacred-gold);
+            font-style: italic;
+        }
+        .mission-text p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--soil-brown);
+            margin-bottom: 1.2rem;
+        }
+        .mission-text .mission-values {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .mission-text .mission-values li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 1rem;
+            color: var(--soil-brown);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        .mission-text .mission-values li::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            background: url('images/badge-leaf.svg') center/contain no-repeat;
+            margin-top: 2px;
+        }
+
+        /* Investment Tiers */
+        .tiers-section {
+            background: linear-gradient(135deg, #0d2204 0%, var(--forest-green) 60%, #3d2817 100%);
+            padding: var(--section-padding);
+        }
+        .tiers-section .section-title {
+            color: var(--sacred-gold);
+        }
+        .tiers-section .section-subtitle {
+            color: rgba(250,248,243,0.8);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .tier-card {
+            background: rgba(250,248,243,0.06);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 16px;
+            padding: 2.2rem 1.8rem;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+        }
+        .tier-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212,175,55,0.55);
+            background: rgba(250,248,243,0.1);
+        }
+        .tier-card.featured {
+            border-color: var(--sacred-gold);
+            background: rgba(212,175,55,0.1);
+        }
+        .tier-featured-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--sacred-gold);
+            color: #0d2204;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .tier-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--sacred-gold);
+            margin-bottom: 0.3rem;
+        }
+        .tier-amount {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #FAF8F3;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+        .tier-amount span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(250,248,243,0.6);
+            font-family: var(--font-body);
+        }
+        .tier-tagline {
+            font-size: 0.9rem;
+            color: rgba(250,248,243,0.65);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-heading);
+        }
+        .tier-divider {
+            height: 1px;
+            background: rgba(212,175,55,0.25);
+            margin-bottom: 1.2rem;
+        }
+        .tier-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.8rem;
+        }
+        .tier-benefits li {
+            font-size: 0.92rem;
+            color: rgba(250,248,243,0.82);
+            padding: 0.4rem 0;
+            padding-left: 1.4rem;
+            position: relative;
+            line-height: 1.5;
+        }
+        .tier-benefits li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--sacred-gold);
+            font-size: 0.7rem;
+            top: 0.55rem;
+        }
+        .tier-cta {
+            display: block;
+            text-align: center;
+            padding: 0.85rem 1.5rem;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: transparent;
+            border: 1.5px solid rgba(212,175,55,0.5);
+            color: var(--sacred-gold);
+        }
+        .tier-cta:hover {
+            background: var(--sacred-gold);
+            color: #0d2204;
+            border-color: var(--sacred-gold);
+        }
+        .tier-card.featured .tier-cta {
+            background: var(--sacred-gold);
+            color: #0d2204;
+            border-color: var(--sacred-gold);
+        }
+        .tier-card.featured .tier-cta:hover {
+            background: #EED060;
+            border-color: #EED060;
+        }
+
+        /* Equinox Event Banner */
+        .event-banner {
+            background: var(--cream);
+            padding: 4rem 2rem;
+        }
+        .event-banner-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .event-banner-text h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            color: var(--forest-green);
+            margin-bottom: 0.8rem;
+        }
+        .event-banner-text h2 em {
+            color: var(--sacred-gold);
+            font-style: italic;
+        }
+        .event-banner-text p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--soil-brown);
+            margin-bottom: 1rem;
+        }
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--forest-green);
+            font-weight: 600;
+        }
+        .event-meta-item img {
+            width: 20px;
+            height: 20px;
+        }
+        .event-flyer-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        .event-flyer-img img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Other Ways to Support */
+        .other-ways-section {
+            background: var(--cream);
+            padding: var(--section-padding);
+        }
+
+        /* Sacred Promise */
+        .promise-section {
+            background: linear-gradient(135deg, var(--soil-brown) 0%, #2a1a0e 100%);
+            padding: var(--section-padding);
+            text-align: center;
+        }
+        .promise-section .section-title {
+            color: var(--sacred-gold);
+        }
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .promise-card {
+            background: rgba(255,255,255,0.06);
+            border-left: 3px solid var(--sacred-gold);
+            border-radius: 0 12px 12px 0;
+            padding: 1.8rem 1.5rem;
+            text-align: left;
+        }
+        .promise-card p {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-style: italic;
+            color: rgba(250,248,243,0.9);
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+        .promise-card cite {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            color: var(--sacred-gold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-style: normal;
+        }
+
+        /* Final CTA */
+        .final-cta-section {
+            background: var(--cream);
+            padding: var(--section-padding);
+            text-align: center;
+        }
+        .final-cta-section h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .final-cta-section h2 em {
+            color: var(--sacred-gold);
+            font-style: italic;
+        }
+        .final-cta-section p {
+            font-size: 1.1rem;
+            color: var(--soil-brown);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+        .final-cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mission-split-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .mission-photo img {
+                height: 280px;
+            }
+            .event-banner-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .tiers-grid {
+                grid-template-columns: 1fr;
+            }
+            .pillars-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>

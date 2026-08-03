@@ -1,0 +1,37 @@
+{
+  "brandName": "Earth Sanctuary",
+  "brandFull": "Earth Sanctuary Order of San Sau",
+  "copyrightYear": "2026",
+  "footerQuote": "Every breath, every thought and every action can and must be performed in a sacred manner.",
+  "contact": {
+    "name": "Rev Dele",
+    "phone": "804-389-5150",
+    "email": "orderofsansau9@gmail.com",
+    "youtubeUrl": "https://youtube.com/@revdele",
+    "youtubeHandle": "@revdele"
+  },
+  "nav": [
+    { "label": "Home", "url": "index.html" },
+    { "label": "About the Order", "url": "about.html" },
+    { "label": "Practices & Programs", "url": "practices.html" },
+    { "label": "Sacred Land", "url": "sacred-land.html" },
+    { "label": "Events", "url": "events.html" },
+    { "label": "Resources", "url": "resources.html" },
+    { "label": "Support & Invest", "url": "support.html" },
+    { "label": "Contact", "url": "contact.html" }
+  ],
+  "footerLinks": [
+    { "label": "About", "url": "about.html" },
+    { "label": "Practices", "url": "practices.html" },
+    { "label": "Sacred Land", "url": "sacred-land.html" },
+    { "label": "Events", "url": "events.html" },
+    { "label": "Resources", "url": "resources.html" },
+    { "label": "Support", "url": "support.html" },
+    { "label": "Contact", "url": "contact.html" }
+  ],
+  "partners": [
+    { "name": "Order of San Sau", "alt": "Order of San Sau", "image": "images/partner-order-of-san-sau.png" },
+    { "name": "Detroit Cob Builders", "alt": "Detroit Cob Builders", "image": "images/partner-detroit-cob.png" },
+    { "name": "Becoming EarthWise", "alt": "Becoming EarthWise", "image": "images/partner-honey-jar.png" }
+  ]
+}

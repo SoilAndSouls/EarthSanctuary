@@ -1,0 +1,25 @@
+    <footer>
+        <div class="footer-content">
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">{{ site.brandFull }}</p>
+            <div class="footer-links">
+{% for item in site.footerLinks %}                <a href="{{ item.url }}">{{ item.label }}</a>
+{% endfor %}            </div>
+            <p style="margin-top: 1rem;">
+                <strong>Contact:</strong> {{ site.contact.name }} | {{ site.contact.phone }} | <a href="{{ site.contact.youtubeUrl }}" style="color: var(--sacred-gold);">{{ site.contact.youtubeHandle }}</a>
+            </p>
+            <div class="footer-partners">
+                <p class="footer-partners-label">Our Partners</p>
+                <div class="footer-partners-logos">
+{% for p in site.partners %}                    <div class="footer-partner">
+                        <img src="{{ p.image }}" alt="{{ p.alt }}">
+                        <span>{{ p.name }}</span>
+                    </div>
+{% endfor %}                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; {{ site.copyrightYear }} {{ site.brandFull }}. All rights reserved.</p>
+{% if footerQuote != false %}                <p style="margin-top: 0.5rem; font-size: 0.9rem;">"{{ site.footerQuote }}"</p>
+{% endif %}            </div>
+        </div>
+    </footer>

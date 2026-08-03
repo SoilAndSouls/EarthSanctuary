@@ -1,0 +1,51 @@
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <a href="index.html" class="logo">
+                <img src="images/logo_enhanced.png" alt="Earth Sanctuary Logo" class="logo-image">
+                {{ site.brandName }}
+            </a>
+            <p>Order of San Sau</p>
+            <p>Grounding Heaven on Earth</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navigate</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="practices.html">Practices</a></li>
+                <li><a href="sacred-land.html">Sacred Land</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="support.html">Support &amp; Invest</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Give</h4>
+            <ul>
+                <li><a href="#offering">Make a Sacred Offering</a></li>
+                <li><a href="#tiers">Investment Tiers</a></li>
+                <li><a href="https://events.humanitix.com/equinox-celebration" target="_blank">Equinox Celebration</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h4>Connect</h4>
+            <p><strong>Rev Dele</strong> · 804-389-5150</p>
+            <a href="https://www.instagram.com/revdele" target="_blank" rel="noopener">@revdele</a>
+        </div>
+    </div>
+    <div class="footer-partners">
+        <p class="footer-partners-label">Our Partners</p>
+        <div class="footer-partners-logos">
+{% for p in site.partners %}            <div class="footer-partner">
+                <img src="{{ p.image }}" alt="{{ p.alt }}">
+                <span>{{ p.name }}</span>
+            </div>
+{% endfor %}        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; {{ site.copyrightYear }} {{ site.brandFull }}. All rights reserved. &nbsp;·&nbsp; Dubach, Louisiana &nbsp;·&nbsp; Grounding Heaven on Earth</p>
+    </div>
+</footer>

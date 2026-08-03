@@ -1,0 +1,16 @@
+{
+  "name": "earth-sanctuary-website",
+  "version": "1.0.0",
+  "description": "Earth Sanctuary Order of San Sau website — a static site built with Eleventy and editable by the collective via Sveltia CMS.",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "node ./node_modules/@11ty/eleventy/cmd.cjs --serve",
+    "dev": "node ./node_modules/@11ty/eleventy/cmd.cjs --serve",
+    "build": "node ./node_modules/@11ty/eleventy/cmd.cjs",
+    "clean": "node ./node_modules/@11ty/eleventy/cmd.cjs --dryrun"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
